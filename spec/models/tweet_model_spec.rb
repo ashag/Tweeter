@@ -6,12 +6,12 @@ describe Tweet do
 
 		it 'must have an author' do 
 			tweet = Tweet.create(body: 'hellooo world')
-			expect(tweet.errors[:author]).to include 'must have author'
+			expect(tweet).to be_invalid
 		end
 
 		it 'must have a body' do 
 			tweet = Tweet.create(author: 'me')
-			expect(tweet.errors[:body]).to include 'body cannot be empty'
+			expect(tweet).to be_invalid
 		end
 
 		it 'has a body not over 140 characters' do 
