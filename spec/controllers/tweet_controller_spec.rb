@@ -25,8 +25,8 @@ describe TweetsController do
 	describe 'POST create' do
 
 		it 'redirects to a show template' do 
-			post :create, tweet: { author:'me', body: 'hellooooo world'}
-			expect(response).to redirect_to tweet_show_path(assigns(:twit).id)
+			post :create, id: twit.id
+			expect(response).to redirect_to tweet_show_path
 		end
 
 
@@ -48,7 +48,7 @@ describe TweetsController do
 	describe 'GET show' do 
 
 		it 'is successful' do 
-			get :show
+			get :show, id: twit.id
 			expect(response).to eq '200'
 		end
 	end
